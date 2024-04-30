@@ -74,6 +74,7 @@ html {
 		margin-bottom:7px;
 		border:5px solid rgb(45,50,59);
 		height: 130px;
+		display: inline !important;
 	}
 	.user__displayname{
 		color: rgb(236,236,236);
@@ -189,5 +190,11 @@ html {
 }
 
 .campo-obligatorio{
-	color: red;
+	color: rgba(255, 0, 0, 0.553);
+}
+
+.message{
+	text-align: center;
+	color: rgba(255, 0, 0, 0.553);
+	font-size: 0.6em;
 }

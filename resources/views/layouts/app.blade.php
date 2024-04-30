@@ -13,6 +13,8 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    @notifyCss
+
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 
@@ -98,13 +100,9 @@
             </div>
         </div>
         
-            
+        @include('notify::components.notify')
     </main>
-
     
-    
-          
-
-    
+    @notifyJs
 </body>
 </html>

@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         //do call to seeder Productos
         $this->call(ProductoSeeder::class);
+        $this->call(UnidadMedidaSeeder::class);
+        $this->call(IvaSeeder::class);
     }
 }

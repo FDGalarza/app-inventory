@@ -15,53 +15,75 @@
             <div class="form-container">
               <div class="mb-5 input">
                 <label class="form-label">Nombre Item<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="nameItem" placeholder="Nombre Item" required>
+                <input type="text" class="form-control" name="name" placeholder="Nombre Item" value="{{old('name')}}">
+                @error('name')
+                <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
+              
               <div class="mb-5 input">
                 <label class="form-label">Codigo Item<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="codigoItem" placeholder="Codigo Item" required>
+                <input type="text" class="form-control" name="codigo" placeholder="Codigo Item" value="{{old('codigo')}}">
+                @error('codigo')
+                <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
               <div class="mb-5 input">
                 <label class="form-label">Codigo de Barras<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="codigoBarras" placeholder="Codigo de barras" required>
+                <input type="text" class="form-control" name="CodBarras" placeholder="Codigo de barras" value="{{old('codigo')}}">
+                @error('CodBarras')
+                <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
             </div>
             
             <div class="form-container">
               <div class="mb-5 input">
                 <label class="form-label">Detalle</label>
-                <input type="text" class="form-control" name="descItem" placeholder="Detalle de Item" required>
+                <input type="text" class="form-control" name="descripcion" placeholder="Detalle de Item" value="{{old('codigo')}}">
               </div>
               <div class="mb-5 select"> 
                 <label class="form-label">Unidad de Medida<strong class="campo-obligatorio"> *</strong></label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="unid_medida" required>
-                  <option selected>Seleccione una Opción</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="unid_medida" >
+                  <option value="" selected>Seleccione una Opción</option>
+                  @foreach ($unidades as $unidad)
+                    <option value="{{ $unidad->id }}">{{ $unidad->descUnidMedida }}</option>
+                  @endforeach
                 </select>
+                @error('unid_medida')
+                <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
 
               <div class="mb-5 input">
                 <label class="form-label">Cantidad<strong class="campo-obligatorio" > *</strong></label>
-                <input type="text" class="form-control" name="cantidadItem" placeholder="Cantidad" required>
+                <input type="text" class="form-control" name="cantidad" placeholder="Cantidad" value="{{old('cantidad')}}">
+                @error('cantidad')
+                  <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
+              
             </div>
 
             <div class="form-container">
               <div class="mb-5" style="margin-right: 65px"> 
                 <label class="form-label">Porcentaje Iva<strong class="campo-obligatorio"> *</strong></label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="iva" required>
-                  <option selected>Seleccione una Opción</option>
-                  <option value="1">Excento (0.00%)</option>
-                  <option value="2">Bienes/Servicios al 5 (5.00%)</option>
-                  <option value="3">Contratos Firmados con el estado antes de Ley 1819 (16%)</option>
-                  <option value="3">Tarifa General (19%)</option>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="ivaPorcentaje">
+                  <option value="" selected>Seleccione una Opción</option>
+                  @foreach ($ivas as $iva)
+                    <option value="{{ $iva->id }}">{{ $iva->descIva }}</option>
+                  @endforeach
                 </select>
+                @error('ivaPorcentaje')
+                <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
               <div class="mb-5 input">
                 <label class="form-label">Valor<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="valor" placeholder="Valor de Item" required>
+                <input type="text" class="form-control" name="valor" placeholder="Valor de Item" value="{{old('valor')}}">
+                @error('valor')
+                <span class="message">*{{ $message }}</span>
+                @enderror
               </div>
             </div>
             <div class="form-container">

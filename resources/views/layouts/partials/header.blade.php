@@ -4,7 +4,7 @@
           <header class="header">
             <p><span></span>&nbsp;&nbsp;&nbsp;Control de inventarios</p>
           </header>
-          <div class="flex-column">
+          <div class="flex-column ">
             <img src="{{URL::asset('/img/inventory.png')}}" alt="" class="user__thumbnail"/>
             <p class="user__displayname"></p>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();

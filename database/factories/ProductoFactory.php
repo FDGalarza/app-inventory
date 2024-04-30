@@ -19,10 +19,14 @@ class ProductoFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'        => $this->faker->sentence(),
-            'descripcion' => $this->faker->paragraph(),
-            'unid_medida' => $this->faker->text(),
-            'cantidad'    => $this->faker->numberBetween(1, 50)
+            'codigo'        => $this->faker->numberBetween(1, 1000000),
+            'CodBarras'     => $this->faker->ean13(),
+            'name'          => $this->faker->sentence(1),
+            'descripcion'   => $this->faker->sentence(5),
+            'unid_medida'   => $this->faker->randomLetter(),
+            'cantidad'      => $this->faker->numberBetween(1, 50),
+            'valor'         => $this->faker->numberBetween(10000, 100000),
+            'ivaPorcentaje' => $this->faker->numberBetween(1, 20) 
         ];
     }
 }

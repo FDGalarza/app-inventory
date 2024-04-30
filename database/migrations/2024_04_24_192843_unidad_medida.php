@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productos', function (Blueprint $table) {
+
+        Schema::create('unidad_medidas', function (Blueprint $table){
+
             $table->id();
-            $table->text('codigo');
-            $table->text('CodBarras');
-            $table->text('name');
-            $table->text('descripcion');
-            $table->text('unid_medida');
-            $table->integer('cantidad');
-            $table->float('valor');
-            $table->float('ivaPorcentaje');
+            $table->text('descUnidMedida');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('unidad_medidas');
     }
 };
