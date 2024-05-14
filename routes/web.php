@@ -36,4 +36,18 @@ Route::controller(inventoryController::class)->group(function(){
      * route to save items
      */
     Route::post('inventory/store', 'store')->name('inventory.store');
+
+    /**
+     * Route to show edit form
+     */
+    Route::get('inventory/{produc}/edit', 'edit')->name('inventory.edit');
+    /**
+     * Route to update item
+     */
+    Route::put('inventory/{produc}/update', 'update')->name('inventory.update');
+
+    /**
+     * Route view register inventory movements
+     */
+    Route::get('inventory/{produc}/movements', 'movements')->name('inventory.move');
 });

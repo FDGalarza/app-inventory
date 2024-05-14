@@ -19,6 +19,7 @@
                             <th scope="col">Producto</th>
                             <th scope="col">Detalle</th>
                             <th scope="col">Cantidad</th>
+                            <th scope="col">Codigo de Barras</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -30,8 +31,11 @@
                             <td>{{$produc->name}}</td>
                             <td>{{$produc->descripcion}}</td>
                             <td>{{$produc->cantidad}} - {{$produc->unid_medida}}</td>
+                            <td>{{$produc->CodBarras}}</td>
                             <td>
-                                <a href="#">Editar</a>
+                                <a href="{{ route('inventory.edit', $produc->id)}}">Editar</a>
+                                <br>
+                                <a href="{{ route('inventory.move', $produc->id)}}">Movimientos</a>
                             </td>
                         </tr>
                         @endforeach

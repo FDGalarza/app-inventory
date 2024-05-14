@@ -6,16 +6,20 @@
         <section class="">
           <div>
             <h1>Items</h1>
+          
           </div>
+          
           <hr>
-          <h4>Registrar Items</h4>
-          <form action="{{ route('inventory.store')}}" class="form-horizontal" method="POST">
+          <h4>Modificar Items</h4>
+          
+          <form action="{{ route('inventory.update', $produc)}}" class="form-horizontal" method="POST">
             <!--token-->
             @csrf
+            @method('put')
             <div class="form-container">
               <div class="mb-5 input">
                 <label class="form-label">Nombre Item<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="name" placeholder="Nombre Item" value="{{old('name')}}">
+                <input type="text" class="form-control" name="name" placeholder="Nombre Item" value="{{old('name', $produc->name)}}">
                 @error('name')
                 <span class="message">*{{ $message }}</span>
                 @enderror
@@ -23,14 +27,14 @@
               
               <div class="mb-5 input">
                 <label class="form-label">Codigo Item<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="codigo" placeholder="Codigo Item" value="{{old('codigo')}}">
+                <input type="text" class="form-control" name="codigo" placeholder="Codigo Item" value="{{old('codigo', $produc->codigo)}}" disabled>
                 @error('codigo')
                 <span class="message">*{{ $message }}</span>
                 @enderror
               </div>
               <div class="mb-5 input">
                 <label class="form-label">Codigo de Barras<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="CodBarras" placeholder="Codigo de barras" value="{{old('CodBarras')}}">
+                <input type="text" class="form-control" name="CodBarras" placeholder="Codigo de barras" value="{{old('CodBarras', $produc->CodBarras)}}" disabled>
                 @error('CodBarras')
                 <span class="message">*{{ $message }}</span>
                 @enderror
@@ -40,14 +44,14 @@
             <div class="form-container">
               <div class="mb-5 input">
                 <label class="form-label">Detalle</label>
-                <input type="text" class="form-control" name="descripcion" placeholder="Detalle de Item" value="{{old('descripcion')}}">
+                <input type="text" class="form-control" name="descripcion" placeholder="Detalle de Item" value="{{old('descripcion', $produc->descripcion)}}">
               </div>
               <div class="mb-5 select"> 
                 <label class="form-label">Unidad de Medida<strong class="campo-obligatorio"> *</strong></label>
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="unid_medida" >
                   <option value="" selected>Seleccione una Opción</option>
                   @foreach ($unidades as $unidad)
-                    <option value="{{ $unidad->descUnidMedida }}">{{ $unidad->descUnidMedida }}</option>
+                    <option value="{{ $unidad->descUnidMedida }}" @if($produc->unid_medida == $unidad->id)selected @endif>{{ $unidad->descUnidMedida }}</option>
                   @endforeach
                 </select>
                 @error('unid_medida')
@@ -57,7 +61,7 @@
 
               <div class="mb-5 input">
                 <label class="form-label">Cantidad<strong class="campo-obligatorio" > *</strong></label>
-                <input type="text" class="form-control" name="cantidad" placeholder="Cantidad" value="{{old('cantidad')}}">
+                <input type="text" class="form-control" name="cantidad" placeholder="Cantidad" value="{{old('cantidad', $produc->cantidad)}}" disabled>
                 @error('cantidad')
                   <span class="message">*{{ $message }}</span>
                 @enderror
@@ -71,7 +75,7 @@
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="ivaPorcentaje">
                   <option value="" selected>Seleccione una Opción</option>
                   @foreach ($ivas as $iva)
-                    <option value="{{ $iva->id }}">{{ $iva->descIva }}</option>
+                    <option value="{{ $iva->id }}" @if($produc->ivaPorcentaje == $iva->id)selected @endif>{{ $iva->descIva }}</option>
                   @endforeach
                 </select>
                 @error('ivaPorcentaje')
@@ -80,7 +84,7 @@
               </div>
               <div class="mb-5 input">
                 <label class="form-label">Valor<strong class="campo-obligatorio"> *</strong></label>
-                <input type="text" class="form-control" name="valor" placeholder="Valor de Item" value="{{old('valor')}}">
+                <input type="text" class="form-control" name="valor" placeholder="Valor de Item" value="{{old('valor', $produc->valor)}}">
                 @error('valor')
                 <span class="message">*{{ $message }}</span>
                 @enderror
@@ -89,12 +93,17 @@
             <div class="form-container">
               
             </div>
-
+            
             <div class="mb-5 input">
               <button type="submit" class="btn btn-primary">Guardad</button>
-              <button type="button" class="btn btn-success">Cancelar</button>
+              <button type="button" class="btn btn-success" >Cancelar</button>
+              <a href="{{route('inventory.show')}}" class="{{request()->routeIs('inventory.show')}}" 
+                style="text-decoration:none">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atras
+                </a>
               
             </div>
+            
           </form>
         </section>
       </div>
