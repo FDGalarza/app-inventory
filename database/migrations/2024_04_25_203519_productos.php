@@ -17,11 +17,14 @@ return new class extends Migration
             $table->text('CodBarras');
             $table->text('name');
             $table->text('descripcion');
-            $table->text('unid_medida');
+            $table->unsignedBigInteger('Unid_med_id');
             $table->integer('cantidad');
             $table->float('valor');
-            $table->float('ivaPorcentaje');
+            $table->unsignedBigInteger('iva_id');
             $table->timestamps();
+
+            $table->foreign('Unid_med_id')->references('id')->on('unidad_medidas');
+            $table->foreign('iva_id')->references('id')->on('ivas');
         });
     }
 

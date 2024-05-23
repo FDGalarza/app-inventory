@@ -51,7 +51,7 @@
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="unid_medida" >
                   <option value="" selected>Seleccione una Opción</option>
                   @foreach ($unidades as $unidad)
-                    <option value="{{ $unidad->descUnidMedida }}" @if($produc->unid_medida == $unidad->id)selected @endif>{{ $unidad->descUnidMedida }}</option>
+                    <option value="{{ $unidad->id }}" @if($produc->unidad_medida->id == $unidad->id)selected @endif>{{ $unidad->descUnidMedida }}</option>
                   @endforeach
                 </select>
                 @error('unid_medida')
@@ -75,7 +75,7 @@
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="ivaPorcentaje">
                   <option value="" selected>Seleccione una Opción</option>
                   @foreach ($ivas as $iva)
-                    <option value="{{ $iva->id }}" @if($produc->ivaPorcentaje == $iva->id)selected @endif>{{ $iva->descIva }}</option>
+                    <option value="{{ $iva->id }}" @if($produc->iva->id == $iva->id)selected @endif>{{ $iva->descIva }}</option>
                   @endforeach
                 </select>
                 @error('ivaPorcentaje')
@@ -96,12 +96,7 @@
             
             <div class="mb-5 input">
               <button type="submit" class="btn btn-primary">Guardad</button>
-              <button type="button" class="btn btn-success" >Cancelar</button>
-              <a href="{{route('inventory.show')}}" class="{{request()->routeIs('inventory.show')}}" 
-                style="text-decoration:none">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atras
-                </a>
-              
+              <a class="btn btn-success" href="{{route('inventory.show')}}" role="button">Cancelar</a>
             </div>
             
           </form>

@@ -16,11 +16,14 @@ return new class extends Migration
             $table->text('movimiento');
             $table->double('cantidadMovimiento');
             $table->double('saldo');
-            $table->integer('producto_id');
+            $table->unsignedBigInteger('producto_id');
+            $table->unsignedBigInteger('usuario_id');
             $table->timestamps();
 
             //Se crea la foranea
             $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('usuario_id')->references('id')->on('users');
+            
         });
     }
 

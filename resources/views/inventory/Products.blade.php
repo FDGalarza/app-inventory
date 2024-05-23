@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+
+@section('title', 'Registrar')
+
 @section('content')
 
       <div class="col-8 module__header">
@@ -44,10 +47,10 @@
               </div>
               <div class="mb-5 select"> 
                 <label class="form-label">Unidad de Medida<strong class="campo-obligatorio"> *</strong></label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="unid_medida" >
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="Unid_med_id" >
                   <option value="" selected>Seleccione una Opción</option>
                   @foreach ($unidades as $unidad)
-                    <option value="{{ $unidad->descUnidMedida }}">{{ $unidad->descUnidMedida }}</option>
+                    <option value="{{ $unidad->id }}">{{ $unidad->descUnidMedida }}</option>
                   @endforeach
                 </select>
                 @error('unid_medida')
@@ -68,7 +71,7 @@
             <div class="form-container">
               <div class="mb-5" style="margin-right: 65px"> 
                 <label class="form-label">Porcentaje Iva<strong class="campo-obligatorio"> *</strong></label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="ivaPorcentaje">
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="iva_id">
                   <option value="" selected>Seleccione una Opción</option>
                   @foreach ($ivas as $iva)
                     <option value="{{ $iva->id }}">{{ $iva->descIva }}</option>

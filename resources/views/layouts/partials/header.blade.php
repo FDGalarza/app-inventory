@@ -19,13 +19,20 @@
                   <li class="nav-link bx bx-home-alt icon"></li>
                   <span class="text nav-text">Inicio</span>
                 </a>
-                <a href="{{route('inventory.create')}}" class="{{request()->routeIs('inventory.create') ? 'active' : (request()->routeIs('inventory.edit') ? 'active' : '')}}">
+                <a href="{{route('inventory.create')}}" class="{{request()->routeIs('inventory.create') ? 'active' :
+                          (request()->routeIs('inventory.edit') ? 'active' : '')}}">
                   <li class="nav-link"></li>
-                  <span class="text nav-text">Gestionar Items</span>
+                  <span class="text nav-text">Registrar Items</span>
                 </a>
-                <a href="{{route('inventory.show')}}" class="{{request()->routeIs('inventory.show') ? 'active' : (request()->routeIs('inventory.move') ? 'active' : '')}}">
+                <a href="{{route('inventory.show')}}" class="{{ Route::is('inventory.show') 
+                                                             || Route::is('inventory.move') 
+                                                             || Route::is('inventory.showProduc')  ? 'active' : ''  }}">
                   <li class="nav-link"></li>
                   <span class="text nav-text">Inventarios</span>
+                </a>
+                <a href="{{route('inventory.record')}}" class="{{ Route::is('inventory.record') ? 'active' : ''  }}">
+                  <li class="nav-link"></li>
+                  <span class="text nav-text">Historico Movimientos</span>
                 </a>
             </ul>
           </nav>

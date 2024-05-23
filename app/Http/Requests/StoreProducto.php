@@ -26,10 +26,10 @@ class StoreProducto extends FormRequest
             'codigo'        => 'required|between:3,13',
             'CodBarras'     => 'required|between:13,13',
             'name'          => 'required',
-            'unid_medida'   => 'required',
+            'Unid_med_id'   => 'required',
             'cantidad'      => 'required|numeric',
             'valor'         => 'required|numeric',
-            'ivaPorcentaje' => 'required'
+            'iva_id'        => 'required'
         ];
     }
 

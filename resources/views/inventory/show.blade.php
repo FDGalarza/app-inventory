@@ -12,6 +12,25 @@
           <hr>
           <h4>Inventario </h4>
             <div class="table-responsive show__table">
+              <form action="{{ route('inventory.showProduc')}}" method="POST">
+                @csrf
+                  <div class="mb-5">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="search" placeholder="Bsscar">
+                      <div class="input-form_append">
+                        <input
+                          name=""
+                          id=""
+                          class="btn btn-primary"
+                          type="submit"
+                          value="Button"
+                        />
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+              </form>
                 <table  class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -27,10 +46,10 @@
                     <tbody>
                         @foreach ($producs as $produc)
                         <tr class="">
-                            <td scope="row">{{$produc->id}}</td>
+                            <td scope="row">{{$produc->codigo}}</td>
                             <td>{{$produc->name}}</td>
                             <td>{{$produc->descripcion}}</td>
-                            <td>{{$produc->cantidad}} - {{$produc->unid_medida}}</td>
+                            <td>{{$produc->cantidad}} - {{$produc->unidad_medida->descUnidMedida}}</td>
                             <td>{{$produc->CodBarras}}</td>
                             <td>
                                 <a href="{{ route('inventory.edit', $produc->id)}}">Editar</a>

@@ -6,7 +6,7 @@
       <div class="col-8 module__header">
         <section class="">
           <div>
-            <h1>Bienvenido {{ Auth::user()->name }}</h1>
+            <h1>Bienvenido</h1>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut l
              abore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 

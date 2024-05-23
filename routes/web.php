@@ -32,6 +32,11 @@ Route::controller(inventoryController::class)->group(function(){
     Route::get('inventory/show', 'show')->name('inventory.show');
 
     /**
+     * Route to show the save viwe
+     */
+    Route::post('inventory/showProduc', 'showProduc')->name('inventory.showProduc');
+
+    /**
      * 
      * route to save items
      */
@@ -50,4 +55,14 @@ Route::controller(inventoryController::class)->group(function(){
      * Route view register inventory movements
      */
     Route::get('inventory/{produc}/movements', 'movements')->name('inventory.move');
+
+    /**
+     * Route register items Move
+     */
+    Route::post('inventory/{produc}/storeMove', 'storeMove')->name('inventory.storeMove');
+
+    /**
+     * Route show view History
+     */
+    Route::get('inventory/record', 'record')->name('inventory.record');
 });

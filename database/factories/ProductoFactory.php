@@ -23,10 +23,10 @@ class ProductoFactory extends Factory
             'CodBarras'     => $this->faker->ean13(),
             'name'          => $this->faker->sentence(1),
             'descripcion'   => $this->faker->sentence(5),
-            'unid_medida'   => $this->faker->randomLetter(),
+            'Unid_med_id'   => $this->faker->numberBetween(1, 4),
             'cantidad'      => $this->faker->numberBetween(1, 50),
             'valor'         => $this->faker->numberBetween(10000, 100000),
-            'ivaPorcentaje' => $this->faker->numberBetween(1, 20) 
+            'iva_id' => $this->faker->numberBetween(1, 4) 
         ];
     }
 }
